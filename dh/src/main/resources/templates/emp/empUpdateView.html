@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<!--/* css */-->
+<link th:href="@{/css/modify.css}" rel="stylesheet" />
+<script type="text/javascript">
+	
+</script>
+<body>
+	<table class="Header">
+		<tr>
+			<td>
+				<div class="header" onclick="">
+					<button type="button" class="w-btn-yellow-outline"
+						style="float: left; margin-left: -2%; margin-right: 10%;"
+						onclick="location.href='/empMain/'">
+						<h3>조직도</h3>
+					</button>
+					<button type="button" class="w-btn-yellow-outline"
+						style="float: left;" onclick="location.href='/empMain/orgView'">
+						<h3>사용자관리</h3>
+					</button>
+				</div>
+				<form th:action="@{'/empMain/' + ${emps.empId}}" method="post">
+					<input type="hidden" name="_method" value="put" />
+					<div>
+						<table id="name">
+							<tr>
+								<td align="center">수정페이지</td>
+							</tr>
+						</table>
+					</div>
+					<table id="infotable" name="modify">
+						<tr>
+							<td width="100px">ID</td>
+							<td width="400px"><span th:text="${emps.empId}"></span></td>
+						</tr>
+						<tr>
+							<td width="100px">사원명</td>
+							<td width="400px"><input type="text" name="empNm"
+								th:value="${emps.empNm}"></td>
+						</tr>
+						<tr>
+							<td width="100px">부서명</td>
+							<td width="400px"><select>
+									<option value="">회장님</option>
+									<option value="">서비스1팀</option>
+									<option value="">서비스2팀</option>
+									<option value="">서비스3팀</option>
+									<option value="">개발1팀</option>
+									<option value="">개발2팀</option>
+									<option value="">데이터1팀</option>
+									<option value="">데이터2팀</option>
+							</select></td>
+						</tr>
+
+						<tr>
+							<td width="100px">전화번호</td>
+							<td width="400px"><input type="text" name="empTelno"
+								th:value="${emps.empTelno}"></td>
+						</tr>
+						<tr>
+							<td width="100px">주소</td>
+							<td width="400px"><input type="text" name="empAddr"
+								th:value="${emps.empAddr}"></td>
+						</tr>
+						<tr>
+							<td width="100px">취미</td>
+							<td width="400px"><input type="checkbox" name="hobby">등산
+								<input type="checkbox" name="hobby">게임 <input
+								type="checkbox" name="hobby">야구 <input type="checkbox"
+								name="hobby">클라이밍 <input type="checkbox" name="hobby">자전거
+							</td>
+						</tr>
+					</table>
+					<div>
+						<table id="rud">
+							<tr>
+								<td><button type="submit" class="w-btn-yellow-outline"><b>수정완료</b></button></td>
+							</tr>
+						</table>
+					</div>
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

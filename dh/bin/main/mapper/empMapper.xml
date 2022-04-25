@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.dh.emp.EmpMapper.empMapper">
+	<select id="search" parameterType="com.dh.emp.EmpDTO.empDTO" resultType="com.dh.emp.EmpDTO.empDTO">
+		<!-- select * from TBL_EMP where EMP_NM = #{empNm} like '%'||#{empNm}||'%' -->
+		select emp_id, emp_nm, emp_dept_id, emp_addr, emp_telno
+               from tbl_emp join tbl_co on tbl_emp.emp_dept_id = tbl_co.co_dept_id
+               where tbl_emp.emp_nm like '%'||#{empNm}||'%'
+	</select>
+	
+	<!-- 검색 -->
+	<select id="info" parameterType="com.dh.emp.EmpDTO.empDTO" resultType="com.dh.emp.EmpDTO.empDTO">
+		<!-- select * from TBL_EMP where EMP_NM = #{empNm} like '%'||#{empNm}||'%' -->
+		select emp_id, emp_nm, emp_dept_id, emp_telno, emp_addr, co_dept_nm, hobby_nm
+               from tbl_emp join tbl_co on tbl_emp.emp_dept_id = tbl_co.co_dept_id
+	</select>
+	
+	<!-- 수정할거 선택 -->
+	<select id="modify" parameterType="com.dh.emp.EmpDTO.empDTO" resultType="com.dh.emp.EmpDTO.empDTO">
+		select emp_id, emp_nm, co_dept_nm, emp_telno, emp_addr
+		from tbl_emp join tbl_co on tbl_emp.emp_dept_id = tbl_co.co_dept_id
+			where tbl_emp.emp_id = #{eId}
+	</select>
+	
+	<!-- 수정완료 	-->
+	<update id="update" parameterType="Map">
+		update tbl_emp set emp_nm = #{EmpDTO.empNm}, emp_telno = #{EmpDTO.empTelno}, emp_addr = #{EmpDTO.empAddr}
+		where tbl_emp.emp_id = #{eId}
+		<!--  insert into tbl_emp values (emp_id, emp_nm, emp_telno, emp_addr, hobby_nm) -->
+	</update>
+
+		<!-- 삭제 -->
+	<select id="delete" parameterType="com.dh.emp.EmpDTO.empDTO">
+		delete from tbl_emp where tbl_emp.emp_id = #{eId}
+	</select>	
+	
+</mapper>
