@@ -1,0 +1,46 @@
+@charset "EUC-KR";
+
+@font-face {
+	font-family: "BMJUA";
+	src: url("../font/BMJUA.ttf");
+}
+
+@font-face {
+	font-family: "NanumSquareRoundB";
+	src: url("../font/NanumSquareRoundB.ttf");
+}
+
+.Header {
+	font-family: "NanumSquareRoundB";
+	width: 60%;
+	height: 500px;
+	margin: 0 auto;
+	margin-top: 8%;
+	border-radius: 10px;
+	border: 5px solid #FFF612;
+	background-color: #FFFFE4;
+	
+}
+
+div.header {
+	margin-left: 40%;
+	margin-top: -20%;
+}
+
+button.w-btn-yellow {
+    background-color: #FAED7D;
+    border-radius: 10px #F6F6F6;
+}
+
+button.w-btn-yellow-outline:hover {
+    background-color: #FAED7D;
+    border-radius: 10px;
+}
+
+div.Header {
+	float: left;
+	margin-left: 35%;
+	width: 40%;
+	height: 10%;
+	margin-top: 8%;
+}

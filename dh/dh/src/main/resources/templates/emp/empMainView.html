@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<!--/* css */-->
+<link th:href="@{/css/home.css}" rel="stylesheet" />
+<body>
+	<table class="Header">
+		<tr>
+			<td>
+				<div class="header" onclick="">
+					<button type="button" class="w-btn-yellow-outline" style="float: left; margin-left: -2%; margin-right: 10%;" onclick="location.href='/empMain/'">
+						<h3>조직도</h3>
+					</button>
+					<button type="button" class="w-btn-yellow-outline" style="float: left;" onclick="location.href='/empMain/orgView'">
+						<h3>사용자관리</h3>
+					</button>
+				</div>
+
+				<form action="/empMain/search" method="get">
+					<div layout:fragment="content" onclick="info">
+						<table id="name">
+							<tr>
+								<td align="center"><b>이름</b></td>
+								<td><input id="input" placeholder="이름을 입력하시오." name="empNm"></td>
+								<td align="center"><button type="submit" id="inputBtn">검색</button></td>
+							</tr>
+						</table>
+					</div>
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
+

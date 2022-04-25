@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<!--/* css */-->
+<link th:href="@{/css/org.css}" rel="stylesheet" />
+<body>
+	<table class="Header">
+		<tr>
+			<td>
+				<div class="header" onclick="">
+					<button type="button" class="w-btn-yellow-outline"
+						style="float: left; margin-left: -2%; margin-right: 10%;"
+						onclick="location.href='/empMain/'">
+						<h3>조직도</h3>
+					</button>
+					<button type="button" class="w-btn-yellow-outline"
+						style="float: left;" onclick="location.href='/empMain/orgView'">
+						<h3>사용자관리</h3>
+					</button>
+				</div>
+			</td>
+		</tr>
+	</table>
